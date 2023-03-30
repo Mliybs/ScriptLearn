@@ -1,101 +1,34 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.IO.Compression;
 
-namespace MyFilePackager
+class Program
 {
-    public class Packager
+    static void Main(string[] args)
     {
-        // 打包文件
-        public static void Pack(string[] files, string packFile)
+        string directoryPath = @"C:\MyDirectory"; // 要打包的文件所在的目录路径
+        string outputPath = @"C:\MyPackedFile.myext"; // 打包后的文件路径
+        
+        // 获取目录中的所有文件名
+        string[] fileNames = Directory.GetFiles(directoryPath);
+        
+        // 创建二进制写入器，用于写入打包后的文件
+        using (BinaryWriter writer = new BinaryWriter(File.Open(outputPath, FileMode.Create)))
         {
-            using (FileStream output = new FileStream(packFile, FileMode.Create))
+            // 首先写入一个整型变量，表示有多少个子文件
+            writer.Write(fileNames.Length);
+            
+            // 逐个写入每个文件名
+            foreach (string fileName in fileNames)
             {
-                // 写入标识信息
-                byte[] header = System.Text.Encoding.UTF8.GetBytes("MYPACK");
-                output.Write(header, 0, header.Length);
-
-                // 写入子文件数量
-                BinaryWriter writer = new BinaryWriter(output);
-                writer.Write(files.Length);
-
-                // 依次写入每个子文件的名称和大小
-                List<long> fileSizes = new List<long>();
-                foreach (string file in files)
-                {
-                    string fileName = Path.GetFileName(file);
-                    string fileDir = Path.GetDirectoryName(file);
-                    writer.Write(fileName);
-                    writer.Write(fileDir);
-
-                    long fileSize = new FileInfo(file).Length;
-                    fileSizes.Add(fileSize);
-                    writer.Write(fileSize);
-                }
-
-                // 写入子文件内容
-                foreach (string file in files)
-                {
-                    using (FileStream input = new FileStream(file, FileMode.Open))
-                    {
-                        byte[] buffer = new byte[4096];
-                        int bytesRead;
-                        while ((bytesRead = input.Read(buffer, 0, buffer.Length)) > 0)
-                        {
-                            output.Write(buffer, 0, bytesRead);
-                        }
-                    }
-                }
-
-                // 压缩文件
-                output.Position = 0;
-                using (FileStream compressed = new FileStream(packFile + ".gz", FileMode.Create))
-                {
-                    using (GZipStream gzip = new GZipStream(compressed, CompressionMode.Compress))
-                    {
-                        byte[] buffer = new byte[4096];
-                        int bytesRead;
-                        while ((bytesRead = output.Read(buffer, 0, buffer.Length)) > 0)
-                        {
-                            gzip.Write(buffer, 0, bytesRead);
-                        }
-                    }
-                }
+                writer.Write(fileName);
+            }
+            
+            // 逐个将每个文件的内容按顺序写入进去
+            foreach (string fileName in fileNames)
+            {
+                byte[] fileContents = File.ReadAllBytes(fileName);
+                writer.Write(fileContents);
             }
         }
-
-        // 解包文件
-        public static void Unpack(string packFile, string outputDir)
-        {
-            using (FileStream input = new FileStream(packFile + ".gz", FileMode.Open))
-            {
-                // 解压文件
-                using (GZipStream gzip = new GZipStream(input, CompressionMode.Decompress))
-                {
-                    // 验证标识信息
-                    byte[] header = new byte[6];
-                    gzip.Read(header, 0, header.Length);
-                    if (System.Text.Encoding.UTF8.GetString(header) != "MYPACK")
-                    {
-                        throw new Exception("Invalid pack file!");
-                    }
-
-                    // 读取子文件数量
-                    BinaryReader reader = new BinaryReader(gzip);
-                    int fileCount = reader.ReadInt32();
-
-                    // 依次读取每个子文件的名称、路径和大小
-                    for (int i = 0; i < fileCount; i++)
-                    {
-                        string fileName = reader.ReadString();
-                        string fileDir = reader.ReadString();
-                        long fileSize = reader.ReadInt64();
-
-                        // 创建目录
-                        string outputPath = Path.Combine(outputDir, fileDir);
-                        Directory.CreateDirectory(outputPath);
-
-                        // 读取文件内容
-                        using (FileStream output = new FileStream(Path.Combine(outputPath, fileName), FileMode.Create))
-                        {
+    }
+}
