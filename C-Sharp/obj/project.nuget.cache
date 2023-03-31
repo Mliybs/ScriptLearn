@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "SOMQa8oiVYnVW7GEvxhRiRA59tiUZQ8xmoNtsGmPwb+gCmuqVJq0FU790Ml/9F9B3lhKf0pwdQvcLKNjBKc91A==",
+  "dgSpecHash": "vejfU4pMLi5XUXgWIHY/H5hm50Dpgrok9T0/3DMuwcn1lCEqnvojJU9keaI7pIYzdkR0zTV1uRvoNZ8rCVvatA==",
   "success": true,
   "projectFilePath": "/media/mliybs/儿童邪典/GitHub/ScriptLearn/C-Sharp/C-Sharp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/mliybs/.nuget/packages/microsoft.netcore.app.ref/7.0.3/microsoft.netcore.app.ref.7.0.3.nupkg.sha512",
+    "/home/mliybs/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.3/microsoft.aspnetcore.app.ref.7.0.3.nupkg.sha512",
+    "/home/mliybs/.nuget/packages/microsoft.netcore.app.host.linux-x64/7.0.3/microsoft.netcore.app.host.linux-x64.7.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -12,6 +12,10 @@ namespace C_Sharp
             Anothers.Car car = new Anothers.Car(() => Console.WriteLine("测你妈"));
 
             car.Invoke();
+
+            AnotherDual ouo = new();
+
+            ouo.ouo().Print();
         }
     }
 }

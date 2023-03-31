@@ -1,0 +1,15 @@
+/media/mliybs/儿童邪典/GitHub/ScriptLearn/C-Sharp/bin/Debug/net7.0/C-Sharp
+/media/mliybs/儿童邪典/GitHub/ScriptLearn/C-Sharp/bin/Debug/net7.0/C-Sharp.deps.json
+/media/mliybs/儿童邪典/GitHub/ScriptLearn/C-Sharp/bin/Debug/net7.0/C-Sharp.runtimeconfig.json
+/media/mliybs/儿童邪典/GitHub/ScriptLearn/C-Sharp/bin/Debug/net7.0/C-Sharp.dll
+/media/mliybs/儿童邪典/GitHub/ScriptLearn/C-Sharp/bin/Debug/net7.0/C-Sharp.pdb
+/media/mliybs/儿童邪典/GitHub/ScriptLearn/C-Sharp/obj/Debug/net7.0/C-Sharp.csproj.AssemblyReference.cache
+/media/mliybs/儿童邪典/GitHub/ScriptLearn/C-Sharp/obj/Debug/net7.0/C-Sharp.GeneratedMSBuildEditorConfig.editorconfig
+/media/mliybs/儿童邪典/GitHub/ScriptLearn/C-Sharp/obj/Debug/net7.0/C-Sharp.AssemblyInfoInputs.cache
+/media/mliybs/儿童邪典/GitHub/ScriptLearn/C-Sharp/obj/Debug/net7.0/C-Sharp.AssemblyInfo.cs
+/media/mliybs/儿童邪典/GitHub/ScriptLearn/C-Sharp/obj/Debug/net7.0/C-Sharp.csproj.CoreCompileInputs.cache
+/media/mliybs/儿童邪典/GitHub/ScriptLearn/C-Sharp/obj/Debug/net7.0/C-Sharp.dll
+/media/mliybs/儿童邪典/GitHub/ScriptLearn/C-Sharp/obj/Debug/net7.0/refint/C-Sharp.dll
+/media/mliybs/儿童邪典/GitHub/ScriptLearn/C-Sharp/obj/Debug/net7.0/C-Sharp.pdb
+/media/mliybs/儿童邪典/GitHub/ScriptLearn/C-Sharp/obj/Debug/net7.0/C-Sharp.genruntimeconfig.cache
+/media/mliybs/儿童邪典/GitHub/ScriptLearn/C-Sharp/obj/Debug/net7.0/ref/C-Sharp.dll
